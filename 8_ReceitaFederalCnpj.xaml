@@ -1,0 +1,374 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_8_ReceitaFederalCnpj" sap:VirtualizedContainerService.HintSize="602,4296" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="32">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Processo de consulta de emissão de comprovante de inscrição e situação cadastral de cnpjs na receita federal" DisplayName="8_ReceitaFederalCnpj" sap:VirtualizedContainerService.HintSize="602,4191" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="var_strUrlReceita" />
+      <Variable x:TypeArguments="x:String" Name="var_strCnpj" />
+      <Variable x:TypeArguments="x:String" Name="var_strDateTime" />
+      <Variable x:TypeArguments="x:String" Name="var_StrCaminhoPdf" />
+      <Variable x:TypeArguments="x:String" Name="var_strCnpjLimpo" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign DisplayName="Assign Url Receita" sap:VirtualizedContainerService.HintSize="560,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[var_strUrlReceita]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">https://servicos.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign Cnpj Consulta" sap:VirtualizedContainerService.HintSize="560,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[var_strCnpj]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">62.823.257/0001-09</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign Cnpj Limpo" sap:VirtualizedContainerService.HintSize="560,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[var_strCnpjLimpo]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[var_strCnpj.Replace(".","").Replace("/","").Replace("-","")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign Data Nome Arquivo" sap:VirtualizedContainerService.HintSize="560,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[var_strDateTime]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[DateTime.Now.ToString("ddMMyyyy_hhmmss")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign Caminho PDF Receita" sap:VirtualizedContainerService.HintSize="560,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[var_StrCaminhoPdf]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["C:\Users\" + Environment.UserName + "\Documents\UiPath\prj_TreinamentoRPA\output\CONSULTA_RECEITA_" + var_strCnpjLimpo + "_" + var_strDateTime + ".pdf"]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Chrome: Emissão de Comprovante de Inscrição e de Situação Cadastral" sap:VirtualizedContainerService.HintSize="560,3557" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="526,3341" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="var_boolNaoRoboExist" />
+              <Variable x:TypeArguments="x:String" Name="var_strSituacaoCadastral" />
+              <Variable x:TypeArguments="x:String" Name="var_strMunicipio" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'CNPJ'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="484,226" sap2010:WorkflowViewState.IdRef="NTypeInto_1" Text="[var_strCnpj]">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://servicos.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp" DesignTimeRectangle="199, 765, 974, 51" ElementType="InputBox" FriendlyName="'INPUT cnpj'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' aaname='CNPJ:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAA9IAAAA3CAYAAADg8nJyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHdSURBVHhe7dfBSoVQGIXR3v/ZnPQeoVxEQVROnKCC0nJDA8214Jv4D4Qz20/PL48iSZIkSZKOZUhLkiRJkhT0MaSbppEkSZIkSTttDum2bd/quk6SJEmSpNv3vpN3h3Tf92UYBkmSdLLGcdz8XnNz+9qdb1foTO91ldsVOtN7/ffb0f7y33Ur7w7paZrKsixlXVdJkiRJkm5f3ch1K+8O6XmeCwAAAPCpbmVDGgAAAA4ypAEAACBgSAMAAEDAkAYAAICAIQ0AAAABQxoAAAAChjQAAAAEDGkAAAAIGNIAAAAQMKQBAAAgYEgDAABAwJAGAACAgCENAAAAAUMaAAAAAoY0AAAABAxpAAAACBjSAAAAEDCkAQAAIGBIAwAAQMCQBgAAgIAhDQAAAAFDGgAAAAKGNAAAAAQMaQAAAAgY0gAAABAwpAEAACBgSAMAAEDAkAYAAICAIQ0AAAABQxoAAAAChjQAAAAEDGkAAAAIGNIAAAAQMKQBAAAgYEgDAABAwJAGAACAgCENAAAAAUMaAAAAAoY0AAAABAxpAAAACBjSAAAAEDCkAQAAIGBIAwAAQMCQBgAAgIAhDQAAAIEfh7QkSZIkSdru25CWJEmSJEm/Z0hLkiRJknS4R3kFgYdgJ0nGwSAAAAAASUVORK5CYII=" InformativeScreenshot="77adc166076a5568dcee03fd9e7798ef.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Emissão de Comprovante de Inscrição e de Situação Cadastral' /&gt;" SearchSteps="FuzzySelector">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="199, 719, 62, 38" ElementType="Text" FriendlyName="'CNPJ'" FullSelectorArgument="&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' aaname='CNPJ:' check:text='CNPJ:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEIAAAAqCAYAAAAH843fAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANdSURBVGhD7ZhNaxNBGMf9Iv0Ke8rJS297yc1LT36AXnLylFMuPeVUECMaVEzRCKWREkQWqSHURZpSCJSCpRSUIiI97H6C8f/sPpvdmcxkQieFgHP4HTKvz/zmJTP7YHqbCk8qvAjGi2C8CMaLYLwIxotgvAjGi2C8CMaLYMwifqais5+I+rNEbDzNCV8lonWUivivpvxtInZfoxzK9250+RUuE7GF9ponah63wf2phG+RP1fHgLEPPVoRk7NEPCIBoHGYiG6MwY0hYS8RNTQeQMhgbrDlIMJDNU/BJqKH/qjPKkeI5Q36Rr36AWKU6mlwFoEGHkNADfajP0oecZHnh3PByLO5e1nNU7CJ2FfTS6LPuYzGsT5/hquIPrbDxvNE9Bcs7+hTPtgutk+ZzoMATRC8T8yz5iCCynQwSdTPSJvPOInA3m9itusYqJSu8iPvRJ6VUkSErRUiv3VWza/gJCIVoy8og/q93/r8DFMfGGP8S0kDsohzSKDKp5U0A02U28IyLdNKETRTPawI46w5ipie5CLusv2GOPOo7vZYTpdFLNOBEVlEEYh2L7uK+O4gYpifMepk358IMCD7L/APo/7dOorIzihs4YEmb4axDz33KmJ6gxWBgOUtBFxEcJvBhwWHMbFWIsAoQhoC715Xyt5FBB1yOIQbL/P2OrYY100EDaCF7bGJwc1m0CYCeSZqXUi4UOtpWDsRYHKcH1Dtc06zidDdLEGk+dszso4iirwAA4zpt02E7V9jGZxEFPeIJSrb7hHVshl8ycraXoGIGJPWOsAq0eRlOIlY9mbJnZhulloRILu+Y49HfDN1EWG9XZ4q29GCLAIMPqIDy1sjxkuQgjC9NUwipte40UH0Nu4XriJohW2iDdM1PhsH+uqrdxgDcyKKYMN3mDldI5jNha/PRSJA8WAjnESANlZXgKf5XJzFC1n3OQBl7W8NZoL9Rx9kAtBA4MWp3cb74SGlo/Oh6XuERcQUS7mJFbcKEcV3kwB3ixbuKxRjB6sti52+mWi2TQ8XMer7yTc5XSsiw/CFameMk1+73JYUAeKvCHQFIjKuENMeYuM4afJo641031IAXfupzI6ypcwi/jO8CMaLYLwIxotgvAjGi2C8CMaLYLwIxotgvIiMVPwDN9zYYt40Q+oAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ClickType="Single" DisplayName="Click Não sou robo" sap:VirtualizedContainerService.HintSize="484,166" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcT2zQUAAAAABRp8qIQR2R0Y2LWYTafR0A8WFbr&amp;co=aHR0cHM6Ly9zZXJ2aWNvcy5yZWNlaXRhLmZhemVuZGEuZ292LmJyOjQ0Mw..&amp;hl=pt-BR&amp;v=539Evs44yecoSf-lkJBQzKKj&amp;size=normal&amp;cb=tj2qn13ahhfg" DesignTimeRectangle="1273, 609, 42, 42" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl omit:name='a-pcqsbfla1pn3' tag='IFRAME' /&gt;&lt;webctrl aria-role='presentation' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl name='a-pcqsbfla1pn3' tag='IFRAME' /&gt;&lt;webctrl aria-role='presentation' tag='DIV' type='' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAYAAABXuSs3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACkSURBVGhD7dkxCgMhGAXh3P9WgpfwKFaGv8gym6R+6DIDr1oXPmx9zTnXiROe3g0+xli999Va22plKhutF7w+/PtppxF/wXe86e+V8QfOA7tFm/BEtAlPRJvwRLQJT0Sb8ES0CU9Em/BEtAlPRJvwRLQJT0Sb8ES0CU9Em/BEtAlPRJvwRLQJT0Sb8ES0PQd+7OPVsc+FH/yON18moms3+Dmb6w2VdokiYVobHQAAAABJRU5ErkJggg==" InformativeScreenshot="832e584288db7a31acbaf3d93356b6e1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Emissão de Comprovante de Inscrição e de Situação Cadastral' /&gt;" SearchSteps="Selector" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <ui:UiElementExists DisplayName="Element Exists 'DIV'" Exists="[var_boolNaoRoboExist]" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+              <ui:UiElementExists.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5596d660-1dc8-4f3a-8f91-36c1c31fd8eb" InformativeScreenshot="327b5887775386c49d42bb671db56a1b" Selector="&lt;webctrl tag='IFRAME' idx='1' /&gt;&lt;webctrl aria-role='checkbox' id='recaptcha-anchor' parentid='rc-anchor-container' tabindex='0' tag='SPAN' class='recaptcha-checkbox goog-inline-block recaptcha-checkbox-unchecked rc-anchor-checkbox recaptcha-checkbox-checked' /&gt;&lt;webctrl aria-role='presentation' isleaf='1' tag='DIV' idx='3' /&gt;" TimeoutMS="4000">
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:UiElementExists.Target>
+            </ui:UiElementExists>
+            <If Condition="[Not var_boolNaoRoboExist]" DisplayName="If Tive que realizar captcha" sap:VirtualizedContainerService.HintSize="484,238" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Realizar captcha!&quot;]" />
+              </If.Then>
+            </If>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Consultar'" sap:VirtualizedContainerService.HintSize="484,166" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://servicos.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp" DesignTimeRectangle="164, 739, 147, 46" ElementType="Button" FriendlyName="'Consultar'" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='submit' aaname=' Consultar' check:text='Consultar' /&gt;" ImageBase64="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" InformativeScreenshot="0cebf74f06a29d9fe60ecfbfa97435ac.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Emissão de Comprovante de Inscrição e de Situação Cadastral' /&gt;" SearchSteps="FuzzySelector" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NGetText DisplayName="Get Text 'SITUAÇÃO CADASTRAL'" sap:VirtualizedContainerService.HintSize="484,166" sap2010:WorkflowViewState.IdRef="NGetText_1">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="https://servicos.receita.fazenda.gov.br/servicos/cnpjreva/Cnpjreva_Comprovante.asp" DesignTimeRectangle="184, 578, 46, 17" FriendlyName="'ATIVA'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;font&amp;gt;b' idx='14' tableCol='1' tag='B' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;font&amp;gt;b' type='' tag='B' /&gt;" InformativeScreenshot="3f3289ce479de974d99ec002e134c1ec.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Comprovante de Inscrição e de Situação Cadastral' /&gt;" SearchSteps="FuzzySelector">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="184, 564, 137, 14" FriendlyName="'SITUAÇÃO CADASTRAL'" FullSelectorArgument="&lt;webctrl idx='11' isleaf='1' tableCol='1' tag='FONT' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' &amp;#x9;&amp;#x9;SITUAÇÃO CADASTRAL &amp;#x9;&amp;#x9;' isleaf='1' type='' tag='FONT' check:text='SITUAÇÃO CADASTRAL' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAI0AAAASCAYAAABmbl0zAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALuSURBVGhD7VZBbuMwDOyle9lrj3vsD/Ku+itGfpK8pOi5LyiQP2hFSrRJaSjZQdomgAZQ09gUOeaM6DyFgYGdeIqgPw+7/v47hMPhNbz8eQ4vr/SJ48a64crmeVB8hPntFC70eYjm4f8Hvhvj9TSwG9Y0X6cw0YmVpU8u35vjmY54n9eYYs3vIVzOEzj1NA2mcPrKXwWcC1xn5AkiC06SSzi9xXtHZlaj4Dqde7Mo51v25Gcu4fD+OOq9eUFuDd6uDiU3tXIMrA/769Tn2p4eCatpMlESXcAEhLA2jQLHFIW3m4aIT2E+TkDMZBh9HeYl8Y5zjK25cby53hCKAe6zOcrcPu+6H05Nj3dPB4Ej7mY9mvW3mgY1Ryf4DtNQTooDuXGOJEDZUPpOn1ZAZ7K51yOgQUDuBm/UDySEy7ungwBdi/Dr1zxhfSevhno9pZPtvipAYQIiudU0FCeE5SESkjmsCRAoZ+ZE/HRNan7FgeDnhg0H8Hl7OUqzN3jzvYYOAkfcbXo06jt5NaofwlyASRfEOdktTUONVN95XEqeeqJAVHuKfNA0ibNnmr5RW7xxP6rnafHOcHUQtEyz7JNV6Naqf41pDCi5duQtTcP5vIdLTe4JiBq07LnSNLXgBZq8vRxpeohpmrwRtA6ClmmMIerczfp7TENC18SV0DtMAwUryKB9dE04YOOlGG4+ejjDsZxsAu96BBInQvemxxvdN1w7vLs6CFCeiKo+x6kp16nv5dVYJw0IZuFMsrqhfpPs64XjFhPYkyewRkkxuoGaj40V2LyGPyOdvIrvAnCfjSR96fOu+2Fzdnn3dBA44iI9dM1r6pewr6cs9jq2FFG+t9E0hDKXJuqcaNmzipIepubjv76sOSO41poD7bHIIi97VAM38Ob6y968lv5s5N3SQcAx20wjfZzOn/36VW1atk77N82d4HKem84f+Fk8hGnSCW2PzIGfw/2bZhmXYEQP/AoeZNIM3BOGaQZ2IoT/Ov2jKdr7UZcAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+              <uix:NGetText.Text>
+                <OutArgument x:TypeArguments="x:String">[var_strSituacaoCadastral]</OutArgument>
+              </uix:NGetText.Text>
+            </uix:NGetText>
+            <uix:NGetText DisplayName="Get Text 'MUNICÍPIO'" sap:VirtualizedContainerService.HintSize="484,166" sap2010:WorkflowViewState.IdRef="NGetText_2">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="https://servicos.receita.fazenda.gov.br/servicos/cnpjreva/Cnpjreva_Comprovante.asp" DesignTimeRectangle="672, 390, 94, 17" FriendlyName="'SAO PAULO'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;font&amp;gt;b' idx='2' tableCol='5' tag='B' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;table&amp;gt;tbody&amp;gt;tr&amp;gt;td&amp;gt;font&amp;gt;b' type='' tag='B' /&gt;" InformativeScreenshot="fe10d8b4bb5bfc183775534408537d38.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Comprovante de Inscrição e de Situação Cadastral' /&gt;" SearchSteps="FuzzySelector">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="672, 376, 63, 14" FriendlyName="'MUNICÍPIO'" FullSelectorArgument="&lt;webctrl idx='2' isleaf='1' tableCol='5' tag='FONT' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' &amp;#x9;&amp;#x9;MUNICÍPIO &amp;#x9;&amp;#x9;' isleaf='1' type='' tag='FONT' check:text='MUNICÍPIO' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEMAAAASCAYAAAAAGGMhAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGxSURBVFhH7ZTbbcMwDEXzkwnaEbKB5opWEbyJPEngMQJ4B5YU9SAl1XbdBGgBXUBBTNPk5ZHsCwxlXVD08w/WFT5vBm4f1869F60I5e/r4cBMS7x4j8ZrIlRgEHljOvQXcBQ3Dv+hnh6sseCf4WbWMhmw8xr+r7PF/DqH6pSYzGet4O/UJ63YL6qtL3Npldrhfj1Hmi8u3ZulYdwtDqpNNPHDMLCpMrQFI4KQ+cF88dLUv3t8Sij45FgNg/3IuTr9UBUMDx6bukeMociEmwnAD2FMLpyoUmsDRjV4kszZhRF8cQ0NQ/ctauMNjKUphA1Eo+MwMFvsVt28HrTepVp7MGRMwVAepPh0pJqkBsYqB6cYFT0LQzXchiFN9dTUF+8/r+gv3d+F0fZtYYQB2HROPg0DlZ9978mQeiEMLmbxO5HNSxjVUCx95JQZFA9L35A+jNBb7GwS++Cc0zC6fkltvAuDzeEA6VrB6HyJQ34pXMPgxnSUv4FxoOZ5GPFawe70Q/VhRPPZrIJBisXy+6oJtzBQG8Oxtmv+BkZQ2uC4dG9WgTE0YEgNGEIDhtCAkQXwBaChYKxWXo4jAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+              <uix:NGetText.Text>
+                <OutArgument x:TypeArguments="x:String">[var_strMunicipio]</OutArgument>
+              </uix:NGetText.Text>
+            </uix:NGetText>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Municipio do cnpj: &quot; + var_strMunicipio]" />
+            <If Condition="[var_strSituacaoCadastral.ToLower = &quot;ativa&quot;]" DisplayName="If Ativo" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="If_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[&quot;Situação cadastral do cnpj &quot; + var_strCnpj  + &quot; ativo!&quot;]" />
+              </If.Then>
+              <If.Else>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Warn" Message="[&quot;Situação cadastral do cnpj &quot; + var_strCnpj  + &quot; não ativo! (&quot;  + var_strSituacaoCadastral + &quot;)&quot;]" />
+              </If.Else>
+            </If>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Imprimir'" sap:VirtualizedContainerService.HintSize="484,166" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://servicos.receita.fazenda.gov.br/servicos/cnpjreva/Cnpjreva_Comprovante.asp" DesignTimeRectangle="479, 512, 131, 46" ElementType="Button" FriendlyName="'Imprimir'" FullSelectorArgument="&lt;webctrl id='print' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='print' tag='BUTTON' type='' aaname=' Imprimir' check:text='Imprimir' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIcAAAAyCAYAAAB24MjMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATESURBVHhe7ZlLT9tKFIDvr+uf4E+w75rVXbNizeau2CBVbMqGRZCuuAghqlA1VSCX1MQlL6eJ4+T0nHnYY8fHSYyT0PYc6RPK5Hhiz3yeF3+BhAQTIocEG7Ec7z7UBUFhIyXH3vkX4Q9H5BBYRA6BReQQWEQOgUXkEFhEDoFF5BBYRA6BReQQWEQOgWV7ctR8uPoxgzCaL2c6hdtmO78eYWtsT47PIwhM/avFDOoiyE7ZgRwR1NsDuMjDDyFUOTYiuLzLqUvYCjuQI4SPed8TC6PLDG4/5+Q5fKQLpiM4tmVPRq/5BE6dvISmvgYjePFNmQ+3U12WitkMWu0O7MfX5ueFYQgX948mBzHP0XpavK7b8ZI8l9z26UMLS5L7NM+bDZqGHzznPqvhbclxNwTPrDt0vEIOjMZDOldR0w1OsSBHFMJVPJIF0JjQfcyxk+30lpPnT6A7o9oiuPpkfqNADpgEcKjK0hy/qEowVpHDGX29EXiq7jk+bzPOq4K3JUeM7cDXyRH2Xhby953vF+Rw6yFqL1CPsDwawz8FefvNCT4V1ve9o8uK5IApXF4n1y5+v4ocmTa8GUKXiof9pKwCflM5ZtCd4B/s1BMnl6aUswGV4+iEf5bKgeg32nYol2fuNzCdw8kxiVQnet6TKTd8ClS5HjFLyFFw/69hC3K04axvh0yKdeTQEfR78HduHi/HLQ73NNTWG25+FxrY/mF3nGn0ZXJgffcFeaZz4/o4OYIArui2RgM4cK4/7NDwNIV6j36rhBy1nnouqrfKdcfG5Tj4Rq2SjtSZBkM2vG+Zt82QLwdK0dQN5jbs3oMVJtvonBx28Wo7YzFv/z8fLkd0v46InBw/hnDskwhYX81+58XCnCgR15Tj32c4U1LxbVSWjcuRLLTWjAh3G7UmnPa1KKlOdsiXgzrGTCHOdyc9rEtNNavI8QhH/+u1BAx65o00eQsxB6/jJ28tJwfVb0YZuj/13TUuwvEzTTW6rVaRYzGKRteyvF05cChveENo6L4uIQe+1Y/0Stp1i15c6kUqI0deTMZwemPqtnnxbiWAFg0EuAM5sr9PFMlx/qxHClyfkEwHaquh1zSry5HsVupj/Ijb9rN4JKqONyxHOsrIYefirv8Me40xNjsO/V8pj5EjtZXtw8l9G97bet085/eO1DSRWdsUymGuUR36BBcjLMfphtYgq8uR5OgXoPophdiBHHPoDkNoFRLh46ejlBx2d4Jv9indR7x7YeRw68klJ+96oKaFZOpBlshhF7CNR30fdvdSRo698+96u50dvSpg43IctkMIaJEZO+I+GIduFBUzWqDSSWX+yWKxHPZcQ/9+cu5RoRxWQJwaLuz5xTI57Gd8NrrOnnuUk4MZvSpg43LEmAZbT47yh2Bxx8QnonZKIaqUA1FTlpm+6PNSOZwR1UwpSdn6cuSOXhXw+8tht6OpA7GK5bBDu10YriCHzXEPxErLcW7WLu4RfgXsQI51YrkcwubYnhz3JeVQJ5PCLtieHMj7Gw8O79bgxvk3uLB1tiqH8GshcggsIofAInIILCKHwCJyCCwih8AicggsIofAInIILCKHwCJyCCwih8AicggsrByCQNiI5ZCQyIbIIcEEwE8h1IddxWyJrQAAAABJRU5ErkJggg==" InformativeScreenshot="efad8597be4718593023d57448480933.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Comprovante de Inscrição e de Situação Cadastral' /&gt;" SearchSteps="FuzzySelector, Image" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <Delay mva:VisualBasic.Settings="{x:Null}" DisplayName="Delay 1 second" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="Delay_1">
+              <TextExpression.Namespaces>
+                <sco:Collection x:TypeArguments="x:String">
+                  <x:String>System.Activities</x:String>
+                  <x:String>System.Activities.Statements</x:String>
+                  <x:String>System.Activities.Expressions</x:String>
+                  <x:String>System.Activities.Validation</x:String>
+                  <x:String>System.Activities.XamlIntegration</x:String>
+                  <x:String>Microsoft.VisualBasic.Activities</x:String>
+                  <x:String>System</x:String>
+                  <x:String>System.Collections.Generic</x:String>
+                  <x:String>System.Data</x:String>
+                  <x:String>System.Diagnostics</x:String>
+                  <x:String>System.IO</x:String>
+                  <x:String>System.Linq</x:String>
+                  <x:String>System.Management.Automation</x:String>
+                  <x:String>System.Net.Mail</x:String>
+                  <x:String>System.Xml</x:String>
+                  <x:String>System.Xml.Linq</x:String>
+                  <x:String>UiPath.Library</x:String>
+                  <x:String>System.Windows.Markup</x:String>
+                </sco:Collection>
+              </TextExpression.Namespaces>
+              <TextExpression.References>
+                <sco:Collection x:TypeArguments="AssemblyReference">
+                  <AssemblyReference>System.Activities</AssemblyReference>
+                  <AssemblyReference>mscorlib</AssemblyReference>
+                  <AssemblyReference>System.Data</AssemblyReference>
+                  <AssemblyReference>System</AssemblyReference>
+                  <AssemblyReference>System.Core</AssemblyReference>
+                  <AssemblyReference>System.Management.Automation</AssemblyReference>
+                  <AssemblyReference>System.Xml</AssemblyReference>
+                  <AssemblyReference>System.Xml.Linq</AssemblyReference>
+                  <AssemblyReference>UiPath.Library</AssemblyReference>
+                  <AssemblyReference>PresentationFramework</AssemblyReference>
+                  <AssemblyReference>WindowsBase</AssemblyReference>
+                  <AssemblyReference>PresentationCore</AssemblyReference>
+                  <AssemblyReference>System.Xaml</AssemblyReference>
+                </sco:Collection>
+              </TextExpression.References>
+              <sap2010:WorkflowViewState.ViewStateManager>
+                <sap2010:ViewStateManager>
+                  <sap2010:ViewStateData sap:VirtualizedContainerService.HintSize="200,22" Id="Delay_1" />
+                </sap2010:ViewStateManager>
+              </sap2010:WorkflowViewState.ViewStateManager>
+            </Delay>
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey 'Intermediate D3D Window'" sap:VirtualizedContainerService.HintSize="484,154" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="p" KeyModifiers="Ctrl">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9d5de46a-a8ef-43d9-a351-d95160e40468" InformativeScreenshot="fd5904dc7ebe5c344d2142c4573b1513" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Sem título - Google Chrome' /&gt;&lt;wnd cls='Intermediate D3D Window' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <Delay mva:VisualBasic.Settings="{x:Null}" DisplayName="Delay 3 seconds" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="Delay_1">
+              <TextExpression.Namespaces>
+                <sco:Collection x:TypeArguments="x:String">
+                  <x:String>System.Activities</x:String>
+                  <x:String>System.Activities.Statements</x:String>
+                  <x:String>System.Activities.Expressions</x:String>
+                  <x:String>System.Activities.Validation</x:String>
+                  <x:String>System.Activities.XamlIntegration</x:String>
+                  <x:String>Microsoft.VisualBasic.Activities</x:String>
+                  <x:String>System</x:String>
+                  <x:String>System.Collections.Generic</x:String>
+                  <x:String>System.Data</x:String>
+                  <x:String>System.Diagnostics</x:String>
+                  <x:String>System.IO</x:String>
+                  <x:String>System.Linq</x:String>
+                  <x:String>System.Management.Automation</x:String>
+                  <x:String>System.Net.Mail</x:String>
+                  <x:String>System.Xml</x:String>
+                  <x:String>System.Xml.Linq</x:String>
+                  <x:String>UiPath.Library</x:String>
+                  <x:String>System.Windows.Markup</x:String>
+                </sco:Collection>
+              </TextExpression.Namespaces>
+              <TextExpression.References>
+                <sco:Collection x:TypeArguments="AssemblyReference">
+                  <AssemblyReference>System.Activities</AssemblyReference>
+                  <AssemblyReference>mscorlib</AssemblyReference>
+                  <AssemblyReference>System.Data</AssemblyReference>
+                  <AssemblyReference>System</AssemblyReference>
+                  <AssemblyReference>System.Core</AssemblyReference>
+                  <AssemblyReference>System.Management.Automation</AssemblyReference>
+                  <AssemblyReference>System.Xml</AssemblyReference>
+                  <AssemblyReference>System.Xml.Linq</AssemblyReference>
+                  <AssemblyReference>UiPath.Library</AssemblyReference>
+                  <AssemblyReference>PresentationFramework</AssemblyReference>
+                  <AssemblyReference>WindowsBase</AssemblyReference>
+                  <AssemblyReference>PresentationCore</AssemblyReference>
+                  <AssemblyReference>System.Xaml</AssemblyReference>
+                </sco:Collection>
+              </TextExpression.References>
+              <sap2010:WorkflowViewState.ViewStateManager>
+                <sap2010:ViewStateManager>
+                  <sap2010:ViewStateData sap:VirtualizedContainerService.HintSize="200,22" Id="Delay_1" />
+                </sap2010:ViewStateManager>
+              </sap2010:WorkflowViewState.ViewStateManager>
+            </Delay>
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DelayBetweenKeys="200" DisplayName="Type Into 'Intermediate D3D Window'" sap:VirtualizedContainerService.HintSize="484,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="%[k(tab)][k(tab)][k(tab)][k(tab)][k(tab)][k(down)]salvar como pdf[k(tab)][k(tab)][k(enter)][k(tab)][k(tab)][k(tab)][k(tab)][k(enter)]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4bbddbf4-9cc7-4249-a46b-ad9bb0a59921" InformativeScreenshot="008ef44c13115b6988915509a87b60cb" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='Sem título - Google Chrome' /&gt;&lt;wnd cls='Intermediate D3D Window' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+            <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application: Salvar como" sap:VirtualizedContainerService.HintSize="484,815" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" OpenMode="Never" Version="V1">
+              <uix:NApplicationCard.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,526" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Documento sem título'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,226" sap2010:WorkflowViewState.IdRef="NTypeInto_3" InteractionMode="HardwareEvents" Text="[var_StrCaminhoPdf]">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="202, 631, 1190, 27" ElementType="InputBox" FriendlyName="'Documento sem título'" FullSelectorArgument="&lt;wnd aaname='Painel do Explorer' cls='DirectUIHWND' /&gt;&lt;wnd aaname='Nome:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Painel do Explorer' cls='DirectUIHWND' /&gt;&lt;wnd aaname='Nome:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAABKoAAAAfCAYAAADHqCXGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQ6SURBVHhe7d0xcts4FAbgHMvjA+UMewwfwydwmVNkZgvPuHPjSZUqHdcSSREkHiQwlG2s+GHmKwJRIPH4qn9g5dvd3V0HAAAAAF9NUAUAAABAE84GVd/++RduQtTfAAAAQFsEVexC1N8AAABAWwRV7ELU3wAAAEBbBFXsQtTfAAAAQFsEVexC1N8AAABAWwRV7ELU3wAAAEBbBFX8b3z/2XXd26/uPvjskqi/AQAAgLZcDqoefnXPXTyef7xkgQAs3f/4894tf7qHh/jzWoIqAAAAuG2VQVUUMrx2T8e4quueHpef7V1fm/3U5cx+Z/2zrS6CKgAAALhtG4Kq3jE8uMJpmZsynELbTVBV3O9L9/CWzG+si6AKAAAAbtvmoOp0surna/DZTgmqBi/dfdo3gioAAADgjCsEVeOpqt/d93A+Hfk1vf7kzWwcg69hPgvB8vn+d5AO609/kngc4zVDSHIaUbC2vGYRipyCksV16W915Xt+H4t71dcll313uY8Le7hKnRLn9nuq19nr6t9xul56bb52Xs+ovwEAAIC2XCWomsKPcW4IQaKgZ7nWGIzMgor3768MMfpnOIzkOYa1n98WzzfOpz8Gn80VgpLDSPf1+Ps4NTslNKyVnxxaUZfM8Dyz7451Gv5dsYfNdYoU9psFS+F19e84W29FPaP+BgAAANpyxaBquiYPFEY14UOqPsRYPsMoCi1O86f7Fu5zDKEW+8rWCr5bG9yclPaZ6kOZPPwa1e1hW50KviioWlPPqL8BAACAtnzAiao+UCmdwomuXR2+BPPzdSdV84WgZTlfCkbqApk1dYkMey69i8o9bKpTSeHeHxtUratn1N8AAABAW673G1WVAUJ/wmcIEErhysnnBlWlMT7fRwZVs7qccbzXONK6VO5hU51KCu+xri4fE1Qt6xn1NwAAANCW7UHVED5MgcGKky6FgGPyuUFV+Tl6HxlUVQVCqeEep/tW7mFTnUoK9/7KoGr53FF/AwAAAG3ZGFQNYcIivCkFOnn4UAopJvFafUhxtaCq4jkOSvuqC2TW1KXS7Pen6tbYVqeCTUFV/TteXremnlF/AwAAAG35+6BqCB3CoKDw2TFYWIYex7DlfcwCltfpf7MbPp/CjSGEOIzkO5sDmOw+B+/PURGM5POF0z5r6pJJajLI7luxh811CsX7ra5L5TvO1ltRz6i/AQAAgLZUBlXROP+7VbOwYRyLQGHSBxjpSMOWPiyZxtNjfmLmKgHMGJolI32OPHg5M5+uNQuY1tQlldco/N6FPVylTpFgv2vq0t9nGtE7jutfV8+ovwEAAIC2XA6q4AZE/Q0AAAC0RVDFLkT9DQAAALRFUMUuRP0NAAAAtEVQxS5E/Q0AAAC0RVDFLkT9DQAAALTlbFAFAAAAAJ9FUAUAAABAEwRVAAAAADRBUAUAAABAA+66/wBIXBDA1n1aagAAAABJRU5ErkJggg==" InformativeScreenshot="de9296bfff18dd337bc377bbebb3889a.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Salvar como' /&gt;" SearchSteps="Selector, FuzzySelector, Image" />
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                    <uix:NClick ClickType="Single" DisplayName="Click 'Sa&amp;lvar'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="1121, 742, 132, 39" ElementType="Button" FriendlyName="'Sa&amp;lvar'" FullSelectorArgument="&lt;wnd ctrlid='1' title='Sa&amp;amp;lvar' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1' title='Sa&amp;amp;lvar' check:text='Sa&amp;amp;lvar' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIgAAAArCAYAAACjMsASAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHXSURBVHhe7ZfRcYMwEAXTk3+ohWYoxD+0Qil0QAcKIAkLcTrjYGfMsZrZTCIpl0zeSqf8VFXlAEogCKgsggzDALAgCnK/3wF0QW63G1wYBAEVBAEVBAEVBAEVBAEVBAEVBAEVBAEVBAEVBAEVBMloOudc37paWLsihgSpXduP4Wajb2thbxkEWWNDkDlVQYZxHkGOYUCQcHN0jbD2OgiyxoAgjZvvDwT5CAYECaG63rW1vP5AeKdkYqWClGUJdZa1F+r6X7ZQ9/swIchyi0xD+8OP4azfJP770rmVFCHMron7A3U76pjM7607jTfddP+FEUE8dXqMd57QlRCbr+X3zfxzntQX647aNMmeM2BKkMhDFKntCO2gKEislQa7vR08r9U9CyYF8YS2sznF63DFk54GKbST/Cb4U92TYFiQ7PTnQQf2BJnOzZ+nLedA3TNgWpA5FFWQ/L+RQpB+0rXNVCNrW0fqngADgkytRHj8eTvGTOK1H1pOcvrDlh1B+sD7fvqQrx2p+/0YEUQawgM1nPY4Jnny4EpBxodv3kpmDtT9dgwIAp8EQRLyIe25GggCKggCKggCKggCKggCKggCKggCKggCKk8FASgKAhDZCAIggSCgULlfcBirZeyk9CcAAAAASUVORK5CYII=" InformativeScreenshot="3379013899202b3123a5654a170f4d9a.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Salvar como' /&gt;" SearchSteps="Selector, FuzzySelector, Image" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                  </Sequence>
+                </ActivityAction>
+              </uix:NApplicationCard.Body>
+              <uix:NApplicationCard.TargetApp>
+                <uix:TargetApp Area="-1718, 139, 1440, 810" FilePath="C:\Program Files\Google\Chrome\Application\chrome.exe" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJNSURBVDhPrZJLTxNhFIbnD8CGClZFQ2QhK7cmSGmnrXSaXmiLEhhKoVIIC3VlXHtBo7LRGHaUXjCtrGyibtR4BzG0tQRNtZ2ZYoxRiAudJnjrvM43nVIbdaVv8u6+5znnJB/13/ORZeqFXus5/hCzzPcwIufuEnm3KZN3mSfWHe116rM/R+hzWIRe2xvO0wXOfQCcywzOaUTeYUDepgdnp1d5h9GsPq9Nqtts5A8yEt9jgSIgcLdJFtBlgZ1IOsExHRJn6TCqWDmtt47UTxxzvV2RAUWgTs8PuEr8cY/Ajenz3Ghnng/oc3xAlxNGdfM157TGxs/um/L+uG1tR84pS/y94B4sYO6JiPhjEcLLeazdcOLzzf3YuNOJ7/d1KC2azqg4RbVcHVlumQ1g5IQTz5gO8A8XMDhVhH2yCNvFItgrRbwTngIps1qjXENaxRWBuCt6GHumhxH32nBNnlqBrRfKjT0SUUq7ZdAEJImAFlWcopqjfnFn1A9SdtKnCH6FmfMVgacMJ2myQVWwIzKU2R4eAmlzZFhayL5eJ2tX4L7LRbwSsh82p5cF1RO0s77T28I+kGrl7o0fReJFWplKej2TxPsl9usmnDSglDKcVHGK0iT8ddqQb3VraBCkTSGv0rbYONoiY7iU6K5OlmEpSReQddT+yqbwoKkx7JUaZZB0y8wANDMsdk/348uSWarASOklZGhaxWrTEGKNjUFvoSHIotK796zfqpMNhb/ClZBzNOGBU5og+9ww17+2sWj6VFrSp8nNv63976Gon7nxsKpDOqxFAAAAAElFTkSuQmCC" InformativeScreenshot="350f65012c10f6ba508e637524b461cb.png" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Salvar como'/&gt;" />
+              </uix:NApplicationCard.TargetApp>
+            </uix:NApplicationCard>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-1931, -11, 1942, 1042" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAS4SURBVGhD7VhpTxVXGO6vabXVJhVcsIpaUato0EZrtLU1waVGZSmCgLJUUGRR8CKrwgUFZZG1QBUVSYWK4hKbuqRtgrWf7Kf2g5b2y9N5Xhk6HWaGmbnQm5vcJ3nCzcycc97nPe9yDm8gwCECLnXcCkj+R8Cbc2ICikEB/mZQgL8ZFOBvBgX4m0EB/mZQgJ4LlqciOaMOl689kIn16O17iAJPJ6L3liJ8dTpmLfjScB679EnAjNBYzFuWgkWr0sTwuUuTsWpDNtKyG9B15R5Gnr3A73+8lAX0GPnlBTp7hnEktxmbPj8h88wMjTNcx4quBLwVEovFitF7E87CW38DHd3DqG+6iRrld3lVL3JOtiIr7xIqqntR1/gtWjuHMHz/Z1nICA++H0FRaTfCP0w3XM+KjgXQ8JikarR9fRvPnv8mg/UYHf1bvE9RO/aXYc3GY9gTX4mztddNhTx6+iuituQarmlF2wLCIg5hf2IVmttfDzADRd25+5PEOj1PEdwF7gy9XFzRgwvNN8VgLfj9+ysPy1qzlbz4dKcHu2IrZF29LVpOKuDdsAR8trsYtRf6TT2uor37jsR0Zc3VcU9zN7SguBPFnYg96EVT6+DYU4g4Gr4iKgvZSvgxrLiL5y72Y0t0kbzT20ZaCojclIPCkq4J3tKCSUrvcXeWrMlAYtp5WdgKdMS+A1Xi3YTUWknm7PwWGcu59IlPMfmeDglFrX2koYCIqCPIONaIwaGnePlqVD7Q49Wff4kwTs7deXtevIw9XfHN2BfWKCztGjciJbMe/QOPxt6YY+DWEykOG7cViI2mAvjXzHCCHvSU9+Bw1kUph4S3rg/rt+Zha/QpWcgKQ8M/ihFM2pIzl8UJTkCxeac6zAXQOLP6zcG7leSa/0HKBG8z7rlzfH+m9hp+ePxc5lHzgDvGUsvKlH60wbK0moHhefxkm5KXp80FhCoNifGoj/1K71VJMn6zbZdn7OlENLV9hx37yrD24xxJ1tyidol5NjmO0yavEzCkOf6d+a/D1VQAyS67fU+JeJyMS/YiZMlBeUeBNNIK9C6PFGr1CAlPQnxKzaThZQTmG8ux7STWcmlkBpav+0q6r/psZ0y5DLIDJjhDhn3ALVhWGbJau1ROKkDPZZGZUursQo1/7mJZ1RXxJJPY6pykgsn9RVylaQ8gHQmYOTdOzj9uwVNoWESqnHk2by+U/GBCUhQFUhTDhaCTPvok39AOLR0JYF5sUCZlN3WL6vN9WLji3+MBvcuTKOs6SysbGysZw1a7thkdCSBZAXj8ZRi4AfsLvc3jidH83GW1KdqhYwEkE5reclNRVDBc2AjfW5RouIZduhJAMpzWbT6ObuXi4gsaWwZlHs5ntM5kdC2A5E6wsfFu4AsOHDrnKGy09EkASRFMuIaWAZnIKXhrY1XS9hkn9FkAycV5lGY5tAv2gKMFLXKPdms8OSUCSBrBrs3blx1k5jT5nMDklAkgKYLXQoaF/iamBQ+KvOkZzeGUUypA5ZzFSXKD0oOlk/dc1nqjcW44LQJIdljej1XwdMrjgy/xbsRpE0Cya/PmxH9y8Qhi9I2vnFYB/weDAvzNoAB/c4KAQOS4gMAF8A+E47Cx/W/2jQAAAABJRU5ErkJggg==" InformativeScreenshot="22306a435053ddbbe36d1b53ffe3ebff.png" Selector="&lt;html app='chrome.exe' title='Emissão de Comprovante de Inscrição e de Situação Cadastral'/&gt;" Url="[var_strUrlReceita]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
