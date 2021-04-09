@@ -1,0 +1,285 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_15_SeletoresDinamicos" sap:VirtualizedContainerService.HintSize="624,2745" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="32">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Activities.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.Web</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="15_SeletoresDinamicos" sap:VirtualizedContainerService.HintSize="634,2640" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="var_listComentarios" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign sap:VirtualizedContainerService.HintSize="592,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:List(x:String)">[var_listComentarios]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:List(x:String)">[New List(Of String)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="592,2448" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="Always" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="558,2232" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="var_strUrlPost" />
+              <Variable x:TypeArguments="x:String" Name="var_strComentario" />
+              <Variable x:TypeArguments="x:Int32" Default="1" Name="var_intContador" />
+              <Variable x:TypeArguments="x:Boolean" Name="var_boolSair" />
+              <Variable x:TypeArguments="x:Int32" Name="var_intIdx" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column1' Name='UrlPost'&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column1' attr='href'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="516,166" sap2010:WorkflowViewState.IdRef="NExtractData_1" MaximumResults="0">
+              <uix:NExtractData.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="257, 140, 1403, 1884" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;section&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;article&amp;gt;div&amp;gt;div' parentid='react-root' tag='DIV' /&gt;" InformativeScreenshot="0663829487408123eba0701112801252.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Terry Crews (@terrycrews) • Fotos e vídeos do Instagram' /&gt;" SearchSteps="Selector" />
+              </uix:NExtractData.Target>
+            </uix:NExtractData>
+            <Assign sap:VirtualizedContainerService.HintSize="516,61" sap2010:WorkflowViewState.IdRef="Assign_3">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[var_strUrlPost]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">["https://www.instagram.com" + ExtractDataTable(0)(0).ToString]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="516,81" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[var_strUrlPost]" />
+            <Assign sap:VirtualizedContainerService.HintSize="516,61" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[var_intContador]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">1</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Delay mva:VisualBasic.Settings="{x:Null}" DisplayName="Delay 1 second" Duration="00:00:01" sap:VirtualizedContainerService.HintSize="516,22" sap2010:WorkflowViewState.IdRef="Delay_1">
+              <TextExpression.Namespaces>
+                <sco:Collection x:TypeArguments="x:String">
+                  <x:String>System.Activities</x:String>
+                  <x:String>System.Activities.Statements</x:String>
+                  <x:String>System.Activities.Expressions</x:String>
+                  <x:String>System.Activities.Validation</x:String>
+                  <x:String>System.Activities.XamlIntegration</x:String>
+                  <x:String>Microsoft.VisualBasic.Activities</x:String>
+                  <x:String>System</x:String>
+                  <x:String>System.Collections.Generic</x:String>
+                  <x:String>System.Data</x:String>
+                  <x:String>System.Diagnostics</x:String>
+                  <x:String>System.IO</x:String>
+                  <x:String>System.Linq</x:String>
+                  <x:String>System.Management.Automation</x:String>
+                  <x:String>System.Net.Mail</x:String>
+                  <x:String>System.Xml</x:String>
+                  <x:String>System.Xml.Linq</x:String>
+                  <x:String>UiPath.Library</x:String>
+                  <x:String>System.Windows.Markup</x:String>
+                </sco:Collection>
+              </TextExpression.Namespaces>
+              <TextExpression.References>
+                <sco:Collection x:TypeArguments="AssemblyReference">
+                  <AssemblyReference>System.Activities</AssemblyReference>
+                  <AssemblyReference>mscorlib</AssemblyReference>
+                  <AssemblyReference>System.Data</AssemblyReference>
+                  <AssemblyReference>System</AssemblyReference>
+                  <AssemblyReference>System.Core</AssemblyReference>
+                  <AssemblyReference>System.Management.Automation</AssemblyReference>
+                  <AssemblyReference>System.Xml</AssemblyReference>
+                  <AssemblyReference>System.Xml.Linq</AssemblyReference>
+                  <AssemblyReference>UiPath.Library</AssemblyReference>
+                  <AssemblyReference>PresentationFramework</AssemblyReference>
+                  <AssemblyReference>WindowsBase</AssemblyReference>
+                  <AssemblyReference>PresentationCore</AssemblyReference>
+                  <AssemblyReference>System.Xaml</AssemblyReference>
+                </sco:Collection>
+              </TextExpression.References>
+              <sap2010:WorkflowViewState.ViewStateManager>
+                <sap2010:ViewStateManager>
+                  <sap2010:ViewStateData sap:VirtualizedContainerService.HintSize="200,22" Id="Delay_1" />
+                </sap2010:ViewStateManager>
+              </sap2010:WorkflowViewState.ViewStateManager>
+            </Delay>
+            <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="516,1217" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+              <ui:InterruptibleDoWhile.Body>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="480,1052" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,960" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                    <TryCatch.Try>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,521" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NGetText DisplayName="Get Text 'Comentario'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NGetText_1" Timeout="2">
+                          <uix:NGetText.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.instagram.com/p/CNaVka8gwJj/" DesignTimeRectangle="1325, 614, 87, 28" ElementType="Text" FriendlyName="'❤️❤️❤️'" FullSelectorArgument="[String.Format(&quot;&lt;webctrl tag='SPAN' css-selector='body&amp;gt;div&amp;gt;section&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;article&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;ul&amp;gt;div&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span' idx='{0}' /&gt;&quot;, var_intContador)]" FuzzySelectorArgument="&lt;webctrl tag='SPAN' css-selector='body&amp;gt;div&amp;gt;section&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;article&amp;gt;div&amp;gt;div&amp;gt;ul&amp;gt;ul&amp;gt;div&amp;gt;li&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;span' type='' /&gt;" InformativeScreenshot="c462f9f2f737616c91435c48d9da9eb2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' url='https://www.instagram.com/p/*' /&gt;" SearchSteps="Selector" />
+                          </uix:NGetText.Target>
+                          <uix:NGetText.Text>
+                            <OutArgument x:TypeArguments="x:String">[var_strComentario]</OutArgument>
+                          </uix:NGetText.Text>
+                        </uix:NGetText>
+                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[var_strComentario]" />
+                        <AddToCollection x:TypeArguments="x:String" Collection="[var_listComentarios]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[var_strComentario]" />
+                        <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">[var_intContador]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">[var_intContador + 1]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </TryCatch.Try>
+                    <TryCatch.Catches>
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,129" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ActivityAction x:TypeArguments="s:Exception">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                          </ActivityAction.Argument>
+                          <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Boolean">[var_boolSair]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </ActivityAction>
+                      </Catch>
+                    </TryCatch.Catches>
+                  </TryCatch>
+                </Sequence>
+              </ui:InterruptibleDoWhile.Body>
+              <ui:InterruptibleDoWhile.Condition>
+                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="var_boolSair = False" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+              </ui:InterruptibleDoWhile.Condition>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InterruptibleDoWhile>
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[var_intIdx]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="516,290" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[var_listComentarios]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="x:String">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="272,155" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[&quot;Idx: &quot; + var_intIdx.ToString + &quot; - Comentário: &quot; + item]" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEach.Body>
+            </ui:ForEach>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="4397cad99c8774084054863d7b71cf2a.png" Selector="&lt;html app='chrome.exe' title='Terry Crews (@terrycrews) • Fotos e vídeos do Instagram'/&gt;" Url="https://www.instagram.com/terrycrews/?hl=pt-br" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

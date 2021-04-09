@@ -3,6 +3,7 @@
   "description": "Projeto base do treinamento RPA TCE",
   "main": "Main.xaml",
   "dependencies": {
+    "UiPath.Database.Activities": "[1.4.0]",
     "UiPath.Excel.Activities": "[2.10.3-preview]",
     "UiPath.Mail.Activities": "[1.10.3-preview]",
     "UiPath.PDF.Activities": "[3.4.0]",
@@ -14,7 +15,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "21.4.0.0",
-  "projectVersion": "1.0.0",
+  "projectVersion": "1.0.1",
   "runtimeOptions": {
     "autoDispose": false,
     "isPausable": true,
